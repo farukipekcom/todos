@@ -37,7 +37,7 @@ const Item = ({
   };
 
   return (
-    <div className="custom__item">
+    <div className="custom__item ">
       {!edit ? (
         <>
           <label className="item">

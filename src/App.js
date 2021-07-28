@@ -260,30 +260,32 @@ function App() {
         <div className="buttons">
           <div className="buttons__left">
             <span>Filter:</span>
-            <button
-              onClick={() => {
-                return setFilter(1);
-                //Filtreye gönderdiğim değeri 1 yaparak sadece tümünü gösteriyorum
-              }}
-            >
-              All
-            </button>
-            <button
-              onClick={() => {
-                return setFilter(2);
-                //Filtreye gönderdiğim değeri 2 yaparak sadece tümünü gösteriyorum
-              }}
-            >
-              Active
-            </button>
-            <button
-              onClick={() => {
-                return setFilter(3);
-                //Filtreye gönderdiğim değeri 3 yaparak sadece tümünü gösteriyorum
-              }}
-            >
-              Completed
-            </button>
+            <div className="buttons_box">
+              <button
+                onClick={() => {
+                  return setFilter(1);
+                  //Filtreye gönderdiğim değeri 1 yaparak sadece tümünü gösteriyorum
+                }}
+              >
+                All
+              </button>
+              <button
+                onClick={() => {
+                  return setFilter(2);
+                  //Filtreye gönderdiğim değeri 2 yaparak sadece tümünü gösteriyorum
+                }}
+              >
+                Active
+              </button>
+              <button
+                onClick={() => {
+                  return setFilter(3);
+                  //Filtreye gönderdiğim değeri 3 yaparak sadece tümünü gösteriyorum
+                }}
+              >
+                Completed
+              </button>
+            </div>
           </div>
           <div className="button__right">
             <div className="custom__button" onClick={markAllTodos}>

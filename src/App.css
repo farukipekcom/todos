@@ -145,7 +145,32 @@ svg {
   display: flex;
   justify-content: space-between;
 }
-
+.buttons__left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .buttons_box {
+    margin-top: 10px;
+  }
+  .buttons__left {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .button__right div {
+    margin-left: 0px;
+  }
+  .custom__button + .custom__button {
+    margin-left: 20px;
+  }
+}
 .custom__button {
   background-color: cornsilk;
   color: #24093a;
