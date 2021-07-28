@@ -150,7 +150,7 @@ svg {
   flex-direction: row;
   align-items: center;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
   .buttons {
     display: flex;
     flex-direction: column;
@@ -163,6 +163,12 @@ svg {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+  .button__right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start !important;
+    margin-top: 20px;
   }
   .button__right div {
     margin-left: 0px;
