@@ -3,6 +3,18 @@ body {
   background-color: #24093a;
   color: cornsilk;
   font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+}
+button,
+input {
+  font-family: "Montserrat", sans-serif;
+}
+button,
+input::placeholder {
+  letter-spacing: 0.5px;
+}
+h1 {
+  margin-top: 0px;
 }
 .container {
   padding: 20px;
@@ -10,7 +22,6 @@ body {
 .box {
   box-sizing: border-box;
 }
-
 .item {
   min-height: 35px;
   border-radius: 20px;
@@ -25,12 +36,16 @@ body {
   padding-bottom: 10px;
 }
 .todo-text {
+  font-size: 15px;
+  letter-spacing: 0.2px;
   padding-left: 10px;
   width: calc(100% - 60px);
 }
+
 ul {
   padding: 0;
 }
+
 ul li {
   background-color: rgb(255, 255, 255);
   list-style-type: none;
@@ -44,7 +59,6 @@ input[type="text"] {
   font-size: 15px;
   color: #24093a;
   padding-left: 10px;
-  letter-spacing: 0.3px;
   border: 0;
   padding-left: 10px;
   border-radius: 5px;
@@ -57,9 +71,11 @@ input[type="text"]::placeholder {
   font-size: 15px;
   color: #24093a;
 }
+
 input[type="text"]:focus {
   outline: none;
 }
+
 button {
   height: 40px;
   background-color: cornsilk;
@@ -67,7 +83,6 @@ button {
   border: 0;
   margin-right: 15px;
   cursor: pointer;
-
   color: #24093a;
   font-weight: 500;
   font-size: 15px;
@@ -88,7 +103,6 @@ input + button {
 .count {
   font-weight: 600;
   font-size: 18px;
-  letter-spacing: 0.7px;
   color: cornsilk;
 }
 
@@ -109,9 +123,13 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 55px;
+  min-height: 56px;
   margin-top: 15px;
   width: 100%;
+}
+
+.custom__item input {
+  letter-spacing: 0.5px;
 }
 
 .title {
@@ -176,5 +194,14 @@ input[type="checkbox"]:checked + span {
 .buttons__left span {
   margin-right: 10px;
   font-weight: 500;
-  letter-spacing: 0.5px;
+}
+
+.delete__icon {
+  margin-right: 10px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.custom_icon > div:first-child {
+  font-size: 24px;
 }

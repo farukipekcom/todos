@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import Item from "./Item";
-
 function App() {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
@@ -9,10 +9,80 @@ function App() {
   const unComplete = todos.filter((oneTodo) => !oneTodo.completed);
   const [filter, setFilter] = useState(1);
   const [count, setCount] = useState(0);
+
+  const alert_success = () =>
+    toast("to do added", {
+      icon: "👍",
+      duration: 3000,
+      className: "custom_icon",
+      style: {
+        borderRadius: "10px",
+        background: "#fff",
+        color: "#333",
+      },
+    });
+
+  const alert_error = () =>
+    toast("you didn't write what to do", {
+      icon: "🤬",
+      duration: 3000,
+      className: "custom_icon",
+      style: {
+        borderRadius: "10px",
+        background: "#fff",
+        color: "#333",
+      },
+    });
+  const alert_delete = () =>
+    toast("to do deleted", {
+      icon: "👋",
+      duration: 3000,
+      className: "custom_icon",
+      style: {
+        borderRadius: "10px",
+        background: "#fff",
+        color: "#333",
+      },
+    });
+  const alert_updated = () =>
+    toast("to do updated", {
+      icon: "✌️",
+      duration: 3000,
+      className: "custom_icon",
+      style: {
+        borderRadius: "10px",
+        background: "#fff",
+        color: "#333",
+      },
+    });
+  const alert_all_mark = () =>
+    toast("all todos marked", {
+      icon: "🙏",
+      duration: 3000,
+      className: "custom_icon",
+      style: {
+        borderRadius: "10px",
+        background: "#fff",
+        color: "#333",
+      },
+    });
+  const alert_all_delete = () =>
+    toast("all todos deleted", {
+      icon: "👋",
+      duration: 3000,
+      className: "custom_icon",
+      style: {
+        borderRadius: "10px",
+        background: "#fff",
+        color: "#333",
+      },
+    });
+
   todos.sort((a, b) => (a.id > b.id ? 1 : -1));
   useEffect(() => {
     setTodos(JSON.parse(localStorage.getItem("todos")) || []);
   }, []);
+
   useEffect(() => {
     setCount(JSON.parse(localStorage.getItem("count")) || null);
   }, []);
@@ -26,6 +96,7 @@ function App() {
   }, [count]);
 
   const addTodo = () => {
+    //Todo ekleme olayı
     setTodos([
       ...todos,
       {
@@ -35,30 +106,37 @@ function App() {
       },
     ]);
     setCount(count + 1);
+    alert_success();
   };
 
   const onSubmit = (e) => {
+    // Todo form input edildiğinde çalışacak
     e.preventDefault();
-    if (todo === "") return;
+    if (todo === "") return alert_error();
     addTodo();
     setTodo("");
   };
   const handleChange = (e) => {
+    // Input text'in karakter girilmesine izin verdiği olay
     setTodo(e.target.value);
   };
   const deleteTodo = (todo) => {
+    //trash icon tıklantığında çalışan olay
     const newTodos = [...todos];
     const index = todos.indexOf(todo);
     newTodos.splice(index, 1);
     setTodos(newTodos);
+    alert_delete();
   };
   const handleCheck = (todo) => {
+    //Oluşturulan todoların checked olup olmama olayı
     todo.completed = !todo.completed;
     const rest = todos.filter((to) => todo.id !== to.id);
     setTodos([...rest, todo]);
   };
 
   const markAllTodos = () => {
+    //hepsini işaretle / kaldır
     unComplete.length > 0 ? (
       <>
         {unComplete.map((item) => {
@@ -76,13 +154,16 @@ function App() {
         })}
       </>
     );
+    alert_all_mark();
   };
   const deleteAllTodos = () => {
+    //hepsini sil
     setTodos([]);
+    alert_all_delete();
   };
 
-  const show = (kontrol) => {
-    if (kontrol === 1) {
+  const show = (filter) => {
+    if (filter === 1) {
       return (
         <div className="box">
           <h3>All Todo</h3>
@@ -97,6 +178,7 @@ function App() {
                     key={item.id}
                     deleteTodo={() => deleteTodo(item)}
                     onChange={() => handleCheck(item)}
+                    alert_updated={() => alert_updated()}
                   />
                 </li>
               ))}
@@ -107,7 +189,7 @@ function App() {
         </div>
       );
     }
-    if (kontrol === 2) {
+    if (filter === 2) {
       return (
         <div className="box">
           <h3>Active Todo</h3>
@@ -134,7 +216,7 @@ function App() {
       );
     }
 
-    if (kontrol === 3) {
+    if (filter === 3) {
       return (
         <div className="box">
           <h3>Completed Todo</h3>
@@ -163,7 +245,6 @@ function App() {
   return (
     <div className="container">
       <h1>todos</h1>
-
       <form className="custom__form" onSubmit={onSubmit}>
         <input
           placeholder="What needs to be done?"
@@ -182,6 +263,7 @@ function App() {
             <button
               onClick={() => {
                 return setFilter(1);
+                //Filtreye gönderdiğim değeri 1 yaparak sadece tümünü gösteriyorum
               }}
             >
               All
@@ -189,6 +271,7 @@ function App() {
             <button
               onClick={() => {
                 return setFilter(2);
+                //Filtreye gönderdiğim değeri 2 yaparak sadece tümünü gösteriyorum
               }}
             >
               Active
@@ -196,6 +279,7 @@ function App() {
             <button
               onClick={() => {
                 return setFilter(3);
+                //Filtreye gönderdiğim değeri 3 yaparak sadece tümünü gösteriyorum
               }}
             >
               Completed
@@ -213,6 +297,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 }
