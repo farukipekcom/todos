@@ -2,34 +2,29 @@
 
 A to-do app where you can manage your daily work. You can add, delete, delete, edit, etc. Data is kept in local-storage.
 
-### ✨ [Demo](https://todos-web-app.vercel.app/)
+## ⭐️ [Demo](https://todos-web-app.vercel.app/)
 
-  </br>
-<a href='https://todos-web-app.vercel.app/' target='_blank'>
-  <img src='https://user-images.githubusercontent.com/7412645/130664188-c87deea5-5160-429c-b145-05179784dbf8.png' width="1295" />
-</a>
+<img src='https://user-images.githubusercontent.com/7412645/130664188-c87deea5-5160-429c-b145-05179784dbf8.png' width="1295" />
 
 ## Install
 
-```sh
-yarn
-```
+Run the development server:
 
-## Usage
-
-```sh
-yarn start
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
 ## Author
 
 👤 **Faruk İpek**
 
-- Website: https://farukipek.com
-- Email: faruk@farukipek.com
-- Twitter: [@farukipekcom](https://twitter.com/farukipekcom)
-- Github: [@farukipekcom](https://github.com/farukipekcom)
-- LinkedIn: [@farukipekcom](https://linkedin.com/in/farukipekcom)
+[![Facebook](https://github.com/user-attachments/assets/182cd4a2-34c4-4523-8975-e8885e9f1391)](https://www.facebook.com/farukipekcom/)&nbsp;&nbsp;
+[![LinkedIn](https://github.com/user-attachments/assets/e7c1e095-6cd5-41f8-a00b-cd36b8b6e58e)](https://www.linkedin.com/in/farukipekcom/)&nbsp;&nbsp;
+[![X](https://github.com/user-attachments/assets/834c448b-e702-4f7a-a98c-5fabbfa20b92)](https://www.x.com/farukipekcom/)&nbsp;&nbsp;
+[![Website](https://github.com/user-attachments/assets/3765f25a-10ae-43d9-971a-8955936f774e)](https://farukipek.com/)&nbsp;&nbsp;
+[![Email](https://github.com/user-attachments/assets/cc905871-fb21-40db-93d9-82840a8122c2)](mailto:faruk@farukipek.com)
 
 ## 🤝 Contributing
 
